@@ -4,19 +4,36 @@ import Header from './components/Header';
 import ProductList from './components/ProductList';
 import productList from './models/data.json';
 import Product from "./components/Product";
+import PropTypes from "prop-types";
+import Search from "./components/Search";
+import { BrowserRouter as Route, Route} from "react-router-dom";
+
 
 function App () {
+
   const products = productList;
   console.log("here are all the products", products);
+
+  const [input, setInput] = useState("")
+  const Search = (event) => {
+    console.log(event.target.value)
+    setInput(event.target.value)
+
+}
 
   products.map(productItem => <Product product={productItem} />)
 
   return(
-    <div className="App">
-    <h1>Media store</h1>
-    <Header />
-    {products.map(productItem => <Product product={productItem} />)}
-    </div>
+    <Route>
+      <section className="App">
+        <input id="search" name="search" type="search" placeholder="Search for media" onChange={(e) => Search(e)}/>
+        <ProductList color="orange">
+            <h1>Media store {input}</h1>
+            {/* <Header /> */}
+            {products.map(productItem => <Product product={productItem} />)}
+        </ProductList>
+      </section>
+    </Route>
   )
 
 }
