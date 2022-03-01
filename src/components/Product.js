@@ -4,35 +4,28 @@ import React from "react";
 
 
 const Product = (props) => {
-    
+    //this part is deconstructing. This is so we can call each object by using its name//
     const {
         trackName,
         trackPrice,
         artistId,
         artistName,
-        trackViewUrl
+        artworkUrl100
         }
      = props.product;
 
     return(
         <section>
-            <h2>{trackName}</h2>
-            <h3>{trackPrice}</h3>
-            <h4>{artistName}</h4>
+            <img src = {artworkUrl100} alt = "thumbnail"/>
+            <section>
+                <h2>{trackName}</h2>
+                <h3>{trackPrice}</h3>
+                <h4>{artistName}</h4>
+            </section>
+            
         </section>
     )
 }
 
-//  const Product = (props) => {
-//     const {title, price } = props;
-//     return(
-//         <section>
-//             <p>{title}</p>
-//             <p>{price}</p>
-          
-//         </section>
-//     );
-
-// };
-
+//Do proptypes from here. copy from session 5. Confirms if the result should be string, boolean or whatever//
 export default Product;

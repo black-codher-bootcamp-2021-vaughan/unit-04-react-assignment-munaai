@@ -6,7 +6,7 @@ import productList from './models/data.json';
 import Product from "./components/Product";
 import PropTypes from "prop-types";
 import Search from "./components/Search";
-import { BrowserRouter as Route, Route} from "react-router-dom";
+import { BrowserRouter as Route, Router} from "react-router-dom";
 
 
 function App () {

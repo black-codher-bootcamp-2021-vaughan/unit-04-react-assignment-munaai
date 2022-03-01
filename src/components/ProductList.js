@@ -1,18 +1,19 @@
-import React from "react";
 import Product from "./Product";
 
 
 
 
- const ProductList = (props) => {
 
-    const { products } = props;
-    return products.map((product) => (
-      <Product
-        title={product.trackName}
-        
-      />
-    ));
-};
+
+ const ProductList = (props) => {
+     return(
+         <section className={"productlist productlist-" + props.color}>
+             {props.children} 
+             {/* props.children shows everything between the productlist tag i the app.js */}
+         </section>
+     )
+ }
+
+
 
 export default ProductList;
