@@ -6,7 +6,7 @@ import productList from './models/data.json';
 import Product from "./components/Product";
 import PropTypes from "prop-types";
 import Search from "./components/Search";
-import { BrowserRouter as Route, Router} from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, Switch} from "react-router-dom";
 
 
 function App () {
@@ -24,16 +24,30 @@ function App () {
   products.map(productItem => <Product product={productItem} />)
 
   return(
-    <Route>
+    <Router>
       <section className="App">
         <input id="search" name="search" type="search" placeholder="Search for media" onChange={(e) => Search(e)}/>
-        <ProductList color="orange">
-            <h1>Media store {input}</h1>
-            {/* <Header /> */}
-            {products.map(productItem => <Product product={productItem} />)}
-        </ProductList>
+        <form>
+          <div>
+             <label>Username</label>
+            <input required id="search" name="search" type="text" placeholder="Enter your Username" onChange={(e) => Search(e)}/>
+          </div>
+          <div>
+             <label>Password</label>
+            <input required id="search" name="search" type="password" placeholder="Enter your password" onChange={(e) => Search(e)}/>
+          </div>
+          <input type= "Submit" value= "Sign in"/>
+        </form>  
+          <ProductList color="orange">
+              <h1>Media store {input}</h1>
+              {/* <Header /> */}
+              {products.map(productItem => <Product product={productItem} />)}
+          </ProductList>
       </section>
-    </Route>
+      <Switch>
+
+      </Switch>
+    </Router>
   )
 
 }
