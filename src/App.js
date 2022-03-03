@@ -39,11 +39,11 @@ function App () {
           </div>
           <input type= "Submit" value= "Sign in"/>
         </form>   */}
-          <ProductList color="orange">
-              <h1>Media store </h1>
-              {/* <Header /> */}
+        <Header />
+
+        <ProductList color="orange">
               {products.map(productItem => <Product product={productItem} />)}
-          </ProductList>
+        </ProductList>
       </section>
   
     </Router>

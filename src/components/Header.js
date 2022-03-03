@@ -1,7 +1,7 @@
 function Header() {
     return (
         <section>
-            <h1>Header</h1>
+            <h1>Media Store</h1>
         </section>
     )
 }
