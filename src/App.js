@@ -14,20 +14,21 @@ function App () {
   const products = productList;
   console.log("here are all the products", products);
 
-  const [input, setInput] = useState("")
-  const Search = (event) => {
-    console.log(event.target.value)
-    setInput(event.target.value)
+  // const [input, setInput] = useState("")
+  // const Search = (event) => {
+  //   console.log(event.target.value)
+  //   setInput(event.target.value)
 
-}
+
 
   products.map(productItem => <Product product={productItem} />)
 
   return(
     <Router>
       <section className="App">
-        <input id="search" name="search" type="search" placeholder="Search for media" onChange={(e) => Search(e)}/>
-        <form>
+        <Search placeholder= "Search for Media.." data={productList}/>
+        {/* <input id="search" name="search" type="search" placeholder="Search for media" onChange={(e) => Search(e)}/>
+        <form id="searchAPI">
           <div>
              <label>Username</label>
             <input required id="search" name="search" type="text" placeholder="Enter your Username" onChange={(e) => Search(e)}/>
@@ -37,16 +38,14 @@ function App () {
             <input required id="search" name="search" type="password" placeholder="Enter your password" onChange={(e) => Search(e)}/>
           </div>
           <input type= "Submit" value= "Sign in"/>
-        </form>  
+        </form>   */}
           <ProductList color="orange">
-              <h1>Media store {input}</h1>
+              <h1>Media store </h1>
               {/* <Header /> */}
               {products.map(productItem => <Product product={productItem} />)}
           </ProductList>
       </section>
-      <Switch>
-
-      </Switch>
+  
     </Router>
   )
 
