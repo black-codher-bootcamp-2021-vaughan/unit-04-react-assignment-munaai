@@ -41,7 +41,7 @@ function App () {
         </form>   */}
         <Header />
 
-        <ProductList color="orange">
+        <ProductList>
               {products.map(productItem => <Product product={productItem} />)}
         </ProductList>
       </section>
