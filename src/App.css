@@ -18,3 +18,36 @@
 h1 {
   text-size: bold;
 }
+#term {
+  border-radius: 5px;
+  border-color: grey;
+  height: 30px;
+  width: 500px;
+  margin-bottom: 20px;
+}
+
+#searchButton {
+  background-color:#89CFF0;
+  border-radius: 5px;
+  height: 35px;
+  width: 100px;
+  color:#fff;
+
+}
+
+#imgAndInfo {
+  float: left;
+  margin-left: 10px;
+
+}
+
+#addButton {
+  background-color: #89CFF0;
+  padding: 8px 10px;
+  border: 0px;  
+  border-radius: 5px;
+  min-width: 80px;
+  color:#fff;
+  /* float: right; */
+  font-size:1.1em;
+}

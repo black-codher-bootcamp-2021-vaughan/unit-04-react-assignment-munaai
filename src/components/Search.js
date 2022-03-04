@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 import { useState } from "react";
 
 
@@ -23,9 +23,9 @@ const Search = ({placeholder, data}) => {
 
     return(
         <form id="searchAPI" onSubmit={Search}>
-            <div className= "Search input">
+            <div className= "Searchinput">
                 <input id="term" type="text" placeholder={placeholder} onChange={handleFilter}/>
-                <button>Submit</button>
+                <button id="searchButton">Search</button>
 
             </div>
             {filteredData.length != 0 && (
@@ -64,7 +64,10 @@ const Search = ({placeholder, data}) => {
     
     
 }
-{/* <h1>Media store {input}</h1> */}
+
 
 
 export default Search;
+
+// WE NEED LINKS
+// MAKE SURE REACTS IS IMPORTED ONNCE! AND USESTATE

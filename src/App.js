@@ -26,6 +26,8 @@ function App () {
   return(
     <Router>
       <section className="App">
+        <h1>Media Store</h1>
+        <Header />
         <Search placeholder= "Search for Media.." data={productList}/>
         {/* <input id="search" name="search" type="search" placeholder="Search for media" onChange={(e) => Search(e)}/>
         <form id="searchAPI">
@@ -39,7 +41,6 @@ function App () {
           </div>
           <input type= "Submit" value= "Sign in"/>
         </form>   */}
-        <Header />
 
         <ProductList>
               {products.map(productItem => <Product product={productItem} />)}

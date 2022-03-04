@@ -6,24 +6,32 @@ import React from "react";
 const Product = (props) => {
     //this part is deconstructing. This is so we can call each object by using its name//
     const {
+        kind,
+        trackId,
         trackName,
+        artworkUrl100,
         trackPrice,
-        artistId,
         artistName,
-        artworkUrl100
+        shortDescription,
+        
         }
      = props.product;
 
     return(
-        <section>
+        <div>    
             <img src = {artworkUrl100} alt = "thumbnail"/>
             <section>
                 <h2>{trackName}</h2>
-                <h3>{trackPrice}</h3>
-                <h4>{artistName}</h4>
+                <h3>{artistName}</h3>
+                <h3>{kind}</h3>
+                <h3>{trackId}</h3>
+                <h2>{trackPrice}</h2>
+                <h3>{shortDescription}</h3>
+
             </section>
+            <button id="addButton" >BUY</button>
             
-        </section>
+        </div>
     )
 }
 
