@@ -1,17 +1,11 @@
-import { useState } from "react";
-import Product from "./Product";
-
-
-// const BasketCount = (props) => {
-//     const [count, setCount] = useState([]);
-//     return(
-//         <button onclick={() => addToBasket(product)} id="addButton" >BUY</button>
-//     )
-
-
-// }
-//  const addToBasket = (product)=> {
-//      setCount([...count, product]);
-//  };
-
-// export default BasketCount;
+const BasketCount = ({ basketCount }) => {
+    let text = "";
+    if (basketCount === 1) {
+      text = "1 item";
+    } else if (basketCount > 1) {
+      text = `${basketCount} items`;
+    }
+    return <div id="basketcount">{text}</div>;
+  };
+  
+export default BasketCount;

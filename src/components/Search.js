@@ -80,7 +80,7 @@ const Search = ({ search, term, setTerm }) => {
               onChange={handleChange}
             />
           </label>
-          <input type="submit" value="Search"></input>
+          <input id="searchButton" type="submit" value="Search"></input>
         </form>
         {term && <h1 className="search_term">Searching for terms:{term}</h1>}
       </div>
