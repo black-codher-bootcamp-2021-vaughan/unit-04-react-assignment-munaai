@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Route, Link, Switch} from "react-router-dom";
 import Basket from "../components/Basket";
 
-function Header() {
+function About() {
     return (
         <Switch>
             <Router path="/">
@@ -20,4 +20,4 @@ function Header() {
     )
 }
 
-export default Header;
+export default About;

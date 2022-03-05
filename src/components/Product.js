@@ -1,39 +1,53 @@
-import React from "react";
 
-
-
-
-const Product = (props) => {
-    //this part is deconstructing. This is so we can call each object by using its name//
-    const {
-        kind,
-        trackId,
-        trackName,
-        artworkUrl100,
-        trackPrice,
-        artistName,
-        shortDescription,
-        
-        }
-     = props.product;
-
-    return(
-        <div>    
-            <img src = {artworkUrl100} alt = "thumbnail"/>
-            <section>
-                <h2>{trackName}</h2>
-                <h3>{artistName}</h3>
-                <h3>{kind}</h3>
-                <h3>{trackId}</h3>
-                <h2>{trackPrice}</h2>
-                <h3>{shortDescription}</h3>
-
-            </section>
-            <button id="addButton" >BUY</button>
-            
+const Product = ({
+    name,
+    price,
+    thumbnail,
+    addToBasket,
+    id,
+    longDescription,
+    removeFromBasket,
+  }) => {
+    const handleAddToBasketClick = () => {
+      console.log("click");
+      addToBasket(id);
+    };
+  
+    let trimLongDescription = longDescription;
+    if (longDescription && longDescription.length > 300) {
+      trimLongDescription = longDescription.substring(0, 300) + "...";
+    }
+  
+    let showRemoveButton = false;
+    if (removeFromBasket) {
+      showRemoveButton = true;
+    }
+    return (
+      <div className="product">
+        <img src={thumbnail} alt={name} />
+        <div className="details">
+          <h2>{name}</h2>
+          <p className="price">£{price}</p>
+          {trimLongDescription && (
+            <p className="description">{trimLongDescription}</p>
+          )}
         </div>
-    )
-}
+        <div className="buttons">
+          {showRemoveButton ? (
+            <button
+              className="remove-button"
+              onClick={() => removeFromBasket(id)}
+            >
+              Remove
+            </button>
+          ) : (
+            <button className="add-button" onClick={handleAddToBasketClick}>
+              Add to Basket
+            </button>
+          )}
+        </div>
+      </div>
+    );
+  };
 
-//Do proptypes from here. copy from session 5. Confirms if the result should be string, boolean or whatever//
 export default Product;

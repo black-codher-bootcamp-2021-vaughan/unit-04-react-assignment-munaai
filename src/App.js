@@ -2,23 +2,33 @@ import { useState } from "react";
 import './App.css';
 import Header from './components/Header';
 import ProductList from './components/ProductList';
-import productList from './models/data.json';
+import productData from './models/data.json';
 import Product from "./components/Product";
 import PropTypes from "prop-types";
 import Search from "./components/Search";
 import { BrowserRouter as Router, Route, Link, Switch} from "react-router-dom";
+import BasketCount from "./components/BasketCount";
+import Home from "./pages/Home";
 
 
 function App () {
 
-  const products = productList;
-  console.log("here are all the products", products);
+  const [products, setProducts] = useState(productData);
+  // const [basketItems, setBasketItems] = useState([]);
+  const [term, setTerm] = useState("");
+  const [currentPageNumber, setCurrentPageNumber] = useState(1);
 
-  // const [input, setInput] = useState("")
-  // const Search = (event) => {
-  //   console.log(event.target.value)
-  //   setInput(event.target.value)
+  let currentProducts = [];
+  const start = (currentPageNumber - 1) * 30 + 1;
+  const end = start + 29;
+  for (let i = start - 1; i < end; i++) {
+    if (products.length > i) {
+      currentProducts.push(products[i]);
+    }
+  }
 
+  // const products = productList;
+  // console.log("here are all the products", products);
 
 
   products.map(productItem => <Product product={productItem} />)
@@ -26,21 +36,23 @@ function App () {
   return(
     <Router>
       <section className="App">
-        <h1>Media Store</h1>
         <Header />
-        <Search placeholder= "Search for Media.." data={productList}/>
-        {/* <input id="search" name="search" type="search" placeholder="Search for media" onChange={(e) => Search(e)}/>
-        <form id="searchAPI">
-          <div>
-             <label>Username</label>
-            <input required id="search" name="search" type="text" placeholder="Enter your Username" onChange={(e) => Search(e)}/>
-          </div>
-          <div>
-             <label>Password</label>
-            <input required id="search" name="search" type="password" placeholder="Enter your password" onChange={(e) => Search(e)}/>
-          </div>
-          <input type= "Submit" value= "Sign in"/>
-        </form>   */}
+        {/* <Search placeholder= "Search for Media.." data={productData}/> */}
+      <switch>
+      <Route path="/">
+            <Home
+              products={currentProducts}
+              // addToBasket={addToBasket}
+              // search={search}
+              term={term}
+              setTerm={setTerm}
+              setCurrentPageNumber={setCurrentPageNumber}
+              currentPageNumber={currentPageNumber}
+              // hasMoreProducts={hasMoreProducts}
+            />
+          </Route>
+
+      </switch>
 
         <ProductList>
               {products.map(productItem => <Product product={productItem} />)}
@@ -52,64 +64,5 @@ function App () {
 
 }
 
-// const newSetOfProducts = [
-//   {
-//     volumeInfo: { title: "Dreams from my father" },
-//     saleInfo: { retailPrice: { amount: "9.99" } },
-//   },
-//   {
-//     volumeInfo: { title: "Trick Mirror" },
-//     saleInfo: { retailPrice: { amount: "10" } },
-//   },
-//   {
-//     volumeInfo: { title: "Me Myself and I" },
-//     saleInfo: { retailPrice: { amount: "22.50" } },
-//   },
-//   {
-//     volumeInfo: { title: "I know why the caged bird sings" },
-//     saleInfo: { retailPrice: { amount: "15" } },
-//   },
-// ];
-
-
-// function App() {
-//   console.log("here are all the products", products);
-//   const [paginationSection, setPaginationSection] = useState([
-//     products[0],
-//     products[1],
-//     products[2],
-//     products[3],
-//   ]);
-//   return (
-//     <div className="App">
-//       <h1>Media store</h1>
-//       <Header />
-//       <button onClick={() => setPaginationSection(newSetOfProducts)}>
-//         Click Me to change the set of books
-//       </button>
-//       <button
-//         onClick={() =>
-//           setPaginationSection([
-//             products[4],
-//             products[5],
-//             products[6],
-//             products[7],
-//           ])
-//         }
-//         >
-//         Click to go to the next pagination of books
-//       </button>
-//       <ProductList products={paginationSection} />
-
-
-//       {/* <ProductList products={products} />
-//       <Product title = "queenie" price = "9.99" />
-//       <Products />
-//       <ProductList /> */}
-
-      
-//     </div>
-//     );
-// }
 
 export default App;

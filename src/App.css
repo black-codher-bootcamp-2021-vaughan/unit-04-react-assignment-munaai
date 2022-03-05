@@ -34,12 +34,15 @@ h1 {
   color:#fff;
 
 }
-
-#imgAndInfo {
+#header #breadcrumb,
+#header h1 {
+  text-align: center;
+}
+/* #imgAndInfo {
   float: left;
   margin-left: 10px;
 
-}
+} */
 
 #addButton {
   background-color: #89CFF0;

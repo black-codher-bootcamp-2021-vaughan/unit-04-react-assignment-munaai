@@ -1,73 +1,90 @@
 // import React from "react";
-import { useState } from "react";
+// import { useState } from "react";
 
 
 
 
-const Search = ({placeholder, data}) => {
-    const [filteredData, setfilteredData] = useState([]);
+// const Search = ({placeholder, data}) => {
+//     const [filteredData, setfilteredData] = useState([]);
 
-    const handleFilter = (event) => {
-        const searchWord = event.target.value;
-        const newFilter = data.filter((value) => {
-            return value.trackName.toLowerCase().includes(searchWord);
-        });
-        if (searchWord === "") {
-            setfilteredData([]);
-        }   else {
-            setfilteredData(newFilter);
-        }
+//     const handleFilter = (event) => {
+//         const searchWord = event.target.value;
+//         const newFilter = data.filter((value) => {
+//             return value.trackName.toLowerCase().includes(searchWord);
+//         });
+//         if (searchWord === "") {
+//             setfilteredData([]);
+//         }   else {
+//             setfilteredData(newFilter);
+//         }
        
+//     };
+    
+
+//     return(
+//         <div id="search">
+//             <form id="searchAPI" onSubmit={Search}>
+//                 <div className= "Searchinput">
+//                     <input id="term" type="text" placeholder={placeholder} onChange={handleFilter}/>
+//                     <button id="searchButton">Search</button>
+
+//                 </div>
+//                 {filteredData.length != 0 && (
+//                 <div className= "dataResult">
+//                     {filteredData.slice(0 , 5).map((value, key) => {
+//                         return (
+//                             <a> {value.trackName} 
+//                                 <p>{value.trackName}</p>
+//                             </a>
+
+//                         )
+//                     })}
+
+//                 </div>
+//                 )}
+
+//             </form>
+//         </div>
+//     )
+
+
+    
+    
+// }
+
+
+
+// export default Search;
+
+const Search = ({ search, term, setTerm }) => {
+    const handleChange = (event) => {
+      setTerm(event.target.value);
     };
-    
-
-    return(
-        <form id="searchAPI" onSubmit={Search}>
-            <div className= "Searchinput">
-                <input id="term" type="text" placeholder={placeholder} onChange={handleFilter}/>
-                <button id="searchButton">Search</button>
-
-            </div>
-            {filteredData.length != 0 && (
-            <div className= "dataResult">
-                {filteredData.slice(0 , 5).map((value, key) => {
-                    return (
-                        <a> {value.trackName} 
-                            <p>{value.trackName}</p>
-                        </a>
-
-                    )
-                })}
-
-            </div>
-            )}
-
+  
+    return (
+      <div id="search">
+        <form
+          id="searchAPI"
+          onSubmit={(e) => {
+            e.preventDefault();
+            search(term);
+          }}
+        >
+          <label>
+            <input
+              type="text"
+              placeholder="Enter search term..."
+              id="term"
+              name="term"
+              value={term}
+              onChange={handleChange}
+            />
+          </label>
+          <input type="submit" value="Search"></input>
         </form>
-    )
-
-    
-
-    // return(
-    //     <form id="searchAPI">
-    //       <div>
-    //          <label>Username</label>
-    //         <input required id="search" name="search" type="text" placeholder="Enter your Username" onChange={(e) => Search(e)}/>
-    //       </div>
-    //       <div>
-    //          <label>Password</label>
-    //         <input required id="search" name="search" type="password" placeholder="Enter your password" onChange={(e) => Search(e)}/>
-    //       </div>
-    //       <input type= "Submit" value= "Sign in"/>
-    //     </form>  
-        
-    // )
-    
-    
-}
-
-
-
-export default Search;
-
-// WE NEED LINKS
-// MAKE SURE REACTS IS IMPORTED ONNCE! AND USESTATE
+        {term && <h1 className="search_term">Searching for terms:{term}</h1>}
+      </div>
+    );
+  };
+  
+  export default Search;
