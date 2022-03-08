@@ -1,34 +1,13 @@
-// import { BrowserRouter as Router, Route, Link, Switch} from "react-router-dom";
-// import Basket from "../components/Basket";
 
-// function About() {
-//     return (
-//         <Switch>
-//             <Router path="/">
-//             </Router>
 
-//             <Router path="/basket">
-//                 <Basket />
-//             </Router>
-
-//             <Router path="/about">
-//                 <About />
-//             </Router>
-//         </Switch>
-        
-
-//     )
-// }
-
-// export default About;
+import React from 'react'
 
 const About = () => {
     return (
       <div id="about">
         <h1>About</h1>
-        <h2>Welcome to Rebecca's Media Store.</h2>
-        Browse the iTunes store for media you are interested in. Add to your
-        basket and keep track of costs.
+        <h2>Welcome to the Media Store.</h2>
+        Have a look at what media you are intersted it and just pop it in your basket!
       </div>
     );
   };

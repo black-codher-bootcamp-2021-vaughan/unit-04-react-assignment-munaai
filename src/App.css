@@ -1,6 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Playfair+Display:wght@600&display=swap");
+
+
+body {
+  line-height: 1.4;
+  font-family: "Amatic SC", cursive;
+  font-family: "Playfair Display", serif;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 .App {
   text-align: center;
 }
+
 
 .App-header {
   min-height: 100vh;
@@ -11,63 +25,187 @@
   font-size: calc(10px + 2vmin);
 }
 
-
 .App-link {
   color: #ca61fb;
 }
 
-h1 {
-  text-size: bold;
-  font-size: 40px;
+.product {
+  padding: 5px 0;
 }
-#term {
-  border-radius: 5px;
-  border-color: grey;
-  height: 30px;
-  width: 500px;
-  margin-bottom: 20px;
-}
-#term {
-  font-size: 1.1em;
+.product {
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #d1d1d1;
+  display: flex;
+  padding-bottom: 20px;
 }
 
-#searchButton {
-  background-color:#89CFF0;
-  border-radius: 5px;
-  height: 35px;
-  width: 100px;
-  color:#fff;
-  font-size: 1.1em;
-
+.product img {
+  min-width: 100px;
+  border-radius: 4px;
 }
+
+.product div.details {
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 80%;
+}
+
+.product h2 {
+  font-family: "Amatic SC", cursive;
+  font-family: "Playfair Display", serif;
+}
+
+.product .price {
+  font-size: 1.2em;
+  font-weight: 700;
+  font-family: "Amatic SC", cursive;
+  font-family: "Playfair Display", serif;
+}
+
+
+#search input[type="submit"],
+.product .add-button {
+  padding: 8px 10px;
+  border: 0;
+  border-radius: 5px;
+  min-width: 80px;
+  color: #fff;
+  float: right;
+  font-size: 1em;
+}
+
+.product .add-button {
+  background-color: purple;
+}
+
+
+@media only screen and (min-width: 992px) {
+  .container {
+    width: 50%;
+    margin: 0 auto;
+  }
+}
+
 #header #breadcrumb,
 #header h1 {
   text-align: center;
 
 }
-  
 
-#breadcrumb {
-  font-size: 20px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-
-
+a {
+  color: #333;
+  text-decoration: none;
 }
 
-/* #imgAndInfo {
-  float: left;
-  margin-left: 10px;
+#search {
+  text-align: center;
+}
 
-} */
+#search form {
+  width: 100%;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #dbdbdb;
+  justify-content: center;
+  display: flex;
+  padding-top: 10px;
+}
 
-#addButton {
-  background-color: #89CFF0;
+#search label {
+  width: 60%;
+}
+
+#search input[type="text"] {
+  border-radius: 5px;
+  padding: 7px 12px;
+  color: #000;
+  font-size: 1.2em;
+  border: 2px solid #9e9e9e;
+  margin-right: 5px;
+  width: 100%;
+}
+
+#search input[type="submit"] {
+  background-color: purple;
+  width: 15%;
+  margin-left: 15px;
+}
+
+#search input[type="submit"],
+.product .add-button {
   padding: 8px 10px;
-  border: 0px;  
+  border: 0;
   border-radius: 5px;
   min-width: 80px;
-  color:#fff;
-  /* float: right; */
-  font-size:1.1em;
+  color: #fff;
+  float: right;
+  font-size: 1.1em;
+  cursor: pointer;
+}
+
+.remove-button {
+  padding: 10px 15px;
+  border: 0;
+  border-radius: 4px;
+  color: #fff;
+  float: right;
+  font-size: 1.1em;
+  background-color: #bd1515;
+  font-weight: 700;
+  font-size: 1.2em;
+  cursor: pointer;
+}
+
+#baskettotal {
+  font-size: 1.5em;
+  width: 100%;
+  font-weight: 700;
+  text-align: center;
+}
+
+
+#header {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#header_wrapper {
+  box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.2);
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  background-color: #fff;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.content_container {
+  margin-top: 100px;
+}
+
+.homepage_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.search_term {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.basket_heading {
+  display: flex;
+  align-items: center;
+  padding-bottom: 10 px;
+}
+
+#basketcount {
+  margin-left: 10px;
+  color: #6c757d;
 }

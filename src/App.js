@@ -82,38 +82,31 @@ function App () {
 
   return(
     <Router>
-       <Header itemCount={basketItems.length} />
-      <section className="App">
-        {/* <Search placeholder= "Search for Media.." data={productData}/> */}
-      <switch>
-        <Route path="/about">
-            <About />
-        </Route>
-        <Route path="/basket">
-            <Basket basket={basketItems} removeFromBasket={removeFromBasket} />
-        </Route>
-        <Route path="/">
-            <Home
-              products={currentProducts}
-              addToBasket={addToBasket}
-              search={search}
-              term={term}
-              setTerm={setTerm}
-              setCurrentPageNumber={setCurrentPageNumber}
-              currentPageNumber={currentPageNumber}
-              hasMoreProducts={hasMoreProducts}
-            />
+      <Header itemCount={basketItems.length} />
+      <div className="container content_container">
+        <Switch>
+          <Route path="/about">
+              <About />
           </Route>
-
-      </switch>
-
-        {/* <ProductList>
-              {products.map(productItem => <Product product={productItem} />)}
-        </ProductList> */}
-      </section>
-  
+          <Route path="/basket">
+              <Basket basket={basketItems} removeFromBasket={removeFromBasket} />
+          </Route>
+          <Route path="/">
+              <Home
+                products={currentProducts}
+                addToBasket={addToBasket}
+                search={search}
+                term={term}
+                setTerm={setTerm}
+                setCurrentPageNumber={setCurrentPageNumber}
+                currentPageNumber={currentPageNumber}
+                hasMoreProducts={hasMoreProducts}
+              />
+            </Route>
+        </Switch>
+      </div>
     </Router>
-  )
+  );
 
 }
 
