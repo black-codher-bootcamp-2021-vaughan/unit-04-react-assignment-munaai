@@ -1,10 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Playfair+Display:wght@600&display=swap");
-
+@import url('https://fonts.googleapis.com/css2?family=Lobster+Two&family=M+PLUS+1:wght@500&display=swap');
 
 body {
   line-height: 1.4;
-  font-family: "Amatic SC", cursive;
-  font-family: "Playfair Display", serif;
+  /* font-family: "Amatic SC", cursive;
+  font-family: "Playfair Display", serif; */
+  font-family: 'Lobster Two', cursive;
+  font-family: 'M PLUS 1', sans-serif;
 }
 * {
   box-sizing: border-box;
